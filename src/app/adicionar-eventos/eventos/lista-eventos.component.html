@@ -1,10 +1,6 @@
-
-  <div *ngFor="let evento of eventos | async">
-    <h3>{{evento.nomeEvento}}</h3>
-    <p>{{evento.descricaoEvento}}</p>
-    <button (click)="editar(evento)">Editar</button>
-    <button (click)="deletar(evento)">Deletar</button>
-  </div>
-  
- 
-  
+<div *ngFor="let evento of eventos | async">
+  <h3>{{ evento.nomeEvento }}</h3>
+  <p>{{ evento.descricaoEvento }}</p>
+  <button mat-raised-button color="primary" (click)="editar(evento)" style="margin: 5px;">Editar</button>
+  <button mat-raised-button color="danger" (click)="deletar(evento)" style="margin: 5px;">Deletar</button>
+</div>

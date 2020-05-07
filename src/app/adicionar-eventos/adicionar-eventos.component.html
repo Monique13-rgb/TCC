@@ -1,32 +1,39 @@
- <body class="formulario">
+<body class="formulario">
+  <form [formGroup]="formularioEvento" (ngSubmit)="adicionar()">
+    <br /><br />
+    <mat-card-title>Cadastro Evento</mat-card-title>
+    <br /><br /><br />
 
-    <form [formGroup]="formularioEvento" (ngSubmit)="adicionar()">
-        <br><br>
-            <mat-card-title>Cadastro Evento</mat-card-title>
-        <br><br><br>
-       
-    <input type="file" (change)="uploadFile($event)">
+    <input type="file" (change)="uploadFile($event)" />
     <div>{{ porcentagemEnvio | async }}</div>
     <a [href]="url | async">{{ url | async }}</a>
-        
-        <mat-form-field appearance="fill" class="input-style">
-               <mat-label>Nome do Evento</mat-label>
-        <input matInput formControlName="nomeEvento" name="nomeEvento">
+
+    <mat-form-field appearance="fill" class="input-style">
+      <mat-label>Nome do Evento</mat-label>
+      <input matInput formControlName="nomeEvento" name="nomeEvento" />
     </mat-form-field>
-            
-             
-        <mat-form-field appearance="fill">
-                <mat-label>Descrição do Evento</mat-label>
-        <input matInput formControlName="descricaoEvento" name="descricaoEvento">
-        </mat-form-field>
 
-             <mat-card-actions>
-                       <div class="row submit-button-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Descrição do Evento</mat-label>
+      <input
+        matInput
+        formControlName="descricaoEvento"
+        name="descricaoEvento"
+      />
+    </mat-form-field>
 
-                         <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!formularioEvento.valid">Create</button>
-                        
-                    </div>    
-                    </mat-card-actions>
-                
-            </form> 
+    <mat-card-actions>
+      <div class="row submit-button-container">
+        <button
+          mat-raised-button
+          class="submit-button"
+          color="primary"
+          type="submit"
+          [disabled]="!formularioEvento.valid"
+        >
+          Criar
+        </button>
+      </div>
+    </mat-card-actions>
+  </form>
 </body>
