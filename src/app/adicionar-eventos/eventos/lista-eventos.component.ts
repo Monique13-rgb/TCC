@@ -18,8 +18,8 @@ export class ListaEventosComponent implements OnInit {
     this.eventos = this.appService.getObservable();
   }
 
-  async deletar(evento: Evento) {
-    await this.appService.delete(evento);
+  async deletar(eventoId) {
+    await this.appService.delete(eventoId);
   }
 
   async editar(evento: Evento) {

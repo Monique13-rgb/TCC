@@ -2,6 +2,11 @@
   <mat-card>
     <form [formGroup]="formularioEvento" (ngSubmit)="adicionar()">
       <mat-card-title>Cadastro Evento</mat-card-title>
+
+      <img
+        style="max-width: 400px; overflow: hidden;"
+        [src]="url | async"
+      />
       <mat-list>
         <mat-list-item>
           <input
@@ -10,18 +15,6 @@
             (change)="uploadFile($event)"
           />
           <div>{{ porcentagemEnvio | async }}</div>
-        </mat-list-item>
-        <mat-list-item>
-          <a
-            style="
-              text-overflow: ellipsis;
-              max-width: 400px;
-              overflow: hidden;
-              height: 1rem;
-            "
-            [href]="url | async"
-            >{{ url | async }}</a
-          >
         </mat-list-item>
         <mat-list-item>
           <mat-label style="margin-top: 10px;">Nome do Evento: </mat-label>

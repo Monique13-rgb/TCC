@@ -42,7 +42,7 @@ export class AdicionarEventosComponent implements OnInit {
   uploadFile(event) {
     const file = event.target.files[0];
 
-    const nomeArquivo = "arquivo teste";
+    const nomeArquivo = `${Math.floor(Math.random() * 100000)} `;
 
     const fileRef = this.storage.ref(nomeArquivo);
     const task = this.storage.upload(nomeArquivo, file);
