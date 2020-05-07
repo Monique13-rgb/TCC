@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mytcc-ca2f7": {
+      "hosting": {
+        "AngularTCC": [
+          "mytcc-ca2f7"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<mat-card class="exemple-card">
+    <div class="flex fill column lista-eventos">
+      <div class="flex row eventos" *ngFor="let programacao of programacaos">
+    
+        <mat-card-content>
+        <div class="grow flex column descricao-evento">
+          <div>
+            <h2>
+              {{ programacao.nomePalestrante }}
+            </h2>
+            <p>
+              {{ programacao.tipo }}
+            </p>
+            <p>
+              {{ programacao.local }}
+            </p>
+            <p>
+                {{  programacao.vagas }}
+        </p>  
+        <p>
+            {{  programacao.valor }}
+          </p>
+          <p>
+            {{  programacao.data }}
+          </p>
+          <p>
+            {{  programacao.hora }}
+          </p>
+          </div>
+        </div>  
+        </mat-card-content>
+    </div>
+    </div>
+    </mat-card>
+    <div>
+      <button  mat-raised-button   (click)="editarProgramacao()">Editar</button> 
+      <button  mat-raised-button   (click)="excluirProgramacao()">Excluir</button> 
+      <button  mat-stroked-button  (click)="voltar()">Voltar</button>
+    </div>

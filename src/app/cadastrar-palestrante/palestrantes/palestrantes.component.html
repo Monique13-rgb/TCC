@@ -1,0 +1,27 @@
+<mat-card class="exemple-card">
+    <div class="flex fill column lista-eventos">
+      <div class="flex row eventos" *ngFor="let palestrante of palestrantes">
+    
+        <mat-card-content>
+        <div class="grow flex column descricao-evento">
+          <div>
+            <h2>
+              {{ palestrante.nome }}
+            </h2>
+            <p>
+              {{ palestrante.sobreome }}
+            </p>
+            <p>
+              {{ palestrante.informacoes }}
+            </p>
+          </div>
+        </div>  
+        </mat-card-content>         
+    </div>
+    </div>
+    </mat-card>
+    <div class="grow">
+      <button (click)="editar()">Editar</button> 
+      <button (click)="excluir()">Excluir</button>
+      <button (click)="voltar()">Voltar</button> 
+    </div>
