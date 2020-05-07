@@ -4,13 +4,24 @@
       <mat-card-title>Cadastro Evento</mat-card-title>
       <mat-list>
         <mat-list-item>
-          <input type="file" (change)="uploadFile($event)" />
+          <input
+            accept="image/x-png,image/gif,image/jpeg"
+            type="file"
+            (change)="uploadFile($event)"
+          />
           <div>{{ porcentagemEnvio | async }}</div>
         </mat-list-item>
         <mat-list-item>
-          <a style="text-overflow: ellipsis; max-width: 400px; overflow: hidden;height:1rem;" [href]="url | async">{{
-            url | async
-          }}</a>
+          <a
+            style="
+              text-overflow: ellipsis;
+              max-width: 400px;
+              overflow: hidden;
+              height: 1rem;
+            "
+            [href]="url | async"
+            >{{ url | async }}</a
+          >
         </mat-list-item>
         <mat-list-item>
           <mat-label style="margin-top: 10px;">Nome do Evento: </mat-label>

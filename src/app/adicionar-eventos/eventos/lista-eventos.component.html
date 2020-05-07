@@ -1,6 +1,7 @@
 <div class="container-eventos">
   <div *ngFor="let evento of eventos | async">
     <mat-card>
+      <img mat-card-image src={{evento.imagem}}>
       <mat-card-title>
         <h3>{{ evento.nomeEvento }}</h3>
       </mat-card-title>
