@@ -1,39 +1,49 @@
 <body class="formulario">
-  <form [formGroup]="formularioEvento" (ngSubmit)="adicionar()">
-    <br /><br />
-    <mat-card-title>Cadastro Evento</mat-card-title>
-    <br /><br /><br />
+  <mat-card>
+    <form [formGroup]="formularioEvento" (ngSubmit)="adicionar()">
+      <mat-card-title>Cadastro Evento</mat-card-title>
+      <mat-list>
+        <mat-list-item>
+          <input type="file" (change)="uploadFile($event)" />
+          <div>{{ porcentagemEnvio | async }}</div>
+        </mat-list-item>
+        <mat-list-item>
+          <a style="text-overflow: ellipsis; max-width: 400px; overflow: hidden;height:1rem;" [href]="url | async">{{
+            url | async
+          }}</a>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-label style="margin-top: 10px;">Nome do Evento: </mat-label>
+          <input
+            matInput
+            MatFormFieldControl="nomeEvento"
+            formControlName="nomeEvento"
+            name="nomeEvento"
+          />
+        </mat-list-item>
+        <mat-list-item>
+          <mat-label style="margin-top: 10px;">Descrição do Evento: </mat-label>
+          <input
+            matInput
+            formControlName="descricaoEvento"
+            name="descricaoEvento"
+          />
+        </mat-list-item>
 
-    <input type="file" (change)="uploadFile($event)" />
-    <div>{{ porcentagemEnvio | async }}</div>
-    <a [href]="url | async">{{ url | async }}</a>
-
-    <mat-form-field appearance="fill" class="input-style">
-      <mat-label>Nome do Evento</mat-label>
-      <input matInput formControlName="nomeEvento" name="nomeEvento" />
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Descrição do Evento</mat-label>
-      <input
-        matInput
-        formControlName="descricaoEvento"
-        name="descricaoEvento"
-      />
-    </mat-form-field>
-
-    <mat-card-actions>
-      <div class="row submit-button-container">
-        <button
-          mat-raised-button
-          class="submit-button"
-          color="primary"
-          type="submit"
-          [disabled]="!formularioEvento.valid"
-        >
-          Criar
-        </button>
-      </div>
-    </mat-card-actions>
-  </form>
+        <mat-card-actions>
+          <div class="row submit-button-container">
+            <button
+              mat-raised-button
+              class="submit-button"
+              color="primary"
+              type="submit"
+              [disabled]="!formularioEvento.valid"
+            >
+              Criar
+            </button>
+          </div>
+        </mat-card-actions>
+      </mat-list>
+    </form>
+  </mat-card>
 </body>

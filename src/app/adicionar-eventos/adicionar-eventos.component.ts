@@ -11,17 +11,17 @@ import { AngularFireStorage } from '@angular/fire/storage';
   templateUrl: './adicionar-eventos.component.html',
   styleUrls: ['./adicionar-eventos.component.scss']
 })
-export class AdicionarEventosComponent implements OnInit { 
-  
+export class AdicionarEventosComponent implements OnInit {
+
   eventos: Observable<Evento[]>;
   porcentagemEnvio: Observable<number>;
   url: Observable<string>;
-  
+
 formularioEvento = new FormGroup({
     nomeEvento: new FormControl(null, [Validators.required]),
     descricaoEvento: new FormControl(null, [Validators.required]),
-    Imagem: new FormControl(null, [Validators.required]),
-   
+    imagem: new FormControl(null, ),
+
   });
 
     constructor(
@@ -29,10 +29,10 @@ formularioEvento = new FormGroup({
       private storage: AngularFireStorage,
       public router: Router
     ) { }
-  
+
     async ngOnInit() {
     }
-  
+
     async adicionar() {
       const novoEvento = this.formularioEvento.value as Evento;
       await this.appService.add(novoEvento);
@@ -40,18 +40,18 @@ formularioEvento = new FormGroup({
     }
     uploadFile(event) {
       const file = event.target.files[0];
-  
+
       const nomeArquivo = 'arquivo teste';
-  
+
       const fileRef = this.storage.ref(nomeArquivo);
       const task = this.storage.upload(nomeArquivo, file);
-  
+
       this.porcentagemEnvio = task.percentageChanges();
-  
+
       task.snapshotChanges().pipe(
         finalize(() => this.url = fileRef.getDownloadURL())
       ).subscribe();
-  
+
     }
-  
+
 }
