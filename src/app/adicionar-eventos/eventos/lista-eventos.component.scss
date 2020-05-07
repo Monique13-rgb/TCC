@@ -1,5 +1,5 @@
 .lista-eventos {
-   
+
     h2 {
         font-weight: 400;
         font-size: 26px;
@@ -29,9 +29,9 @@
             width: 100%;
             text-align: left;
             font-family: 1000px;
-            font-weight: 1000px;      
-            
-        
+            font-weight: 1000px;
+
+
         }
 
         .grow {
@@ -73,5 +73,12 @@
         top: 5px;
         right: 10px;
       }
-      
+
+}
+.container-eventos{
+  display: flex;
+}
+
+mat-card{
+  margin: 20px;
 }
