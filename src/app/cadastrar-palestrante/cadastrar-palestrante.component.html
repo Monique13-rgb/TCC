@@ -1,0 +1,63 @@
+<mat-card-title>Cadastrar Palestrante</mat-card-title>
+<br>
+<mat-card class="banana-evento">
+<form [formGroup]="formPalestrante" (ngSubmit)="cadastrar()">
+<img class = "imagem-evento"
+    style="max-width: 400px; overflow: hidden;"
+    [src]="url | async"
+  />
+    <mat-list-item>
+      <input
+        accept="image/x-png,image/gif,image/jpeg"
+        type="file"
+        (change)="uploadFile($event)"
+      />
+      <div>{{ porcentagemEnvio | async }}</div>
+    </mat-list-item>
+<br><br>
+    <mat-form-field appearance="fill">
+
+      <mat-label>Nome: </mat-label>
+      <input
+        matInput
+        formControlName="nome"
+        placeholder="Nome do Palestrante: "
+        name="nome"
+      />
+    
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+
+      <mat-label>Sobrenome: </mat-label>
+      <input
+        matInput
+        formControlName="sobrenome"
+        placeholder="sobrenome do Palestrante: "
+        name="sobrenome"
+      />
+    
+    </mat-form-field>
+    <br>
+      <mat-form-field appearance="fill">
+      <mat-label>Informações: </mat-label>
+      <textarea rows="4"
+        matInput
+        formControlName="informacoes"
+        placeholder="Informações: "
+        name="informacoes"></textarea>
+
+      </mat-form-field>
+      <mat-card-actions>
+      <button 
+      mat-stroked-button
+      color="primary"
+      class="uppercase" 
+      type="submit"
+      [disabled]="formPalestrante.disabled">
+      Salvar
+      </button>
+      <button mat-stroked-button (click)="voltar()" class="sabão">Voltar</button>
+      </mat-card-actions>
+</form>
+</mat-card>

@@ -1,1 +1,51 @@
+<mat-card-title>Editar Evento</mat-card-title>
+    <br>
+  <mat-card class="banana-evento">
+    <form [formGroup]="formularioEvento" (ngSubmit)="editar()">
+<img class ="imagem-evento"
+        style="max-width: 400px; overflow: hidden;"
+        [src]="url | async"
+      />
+        <mat-list-item>
+          <input
+            accept="image/x-png,image/gif,image/jpeg"
+            type="file"
+            (change)="uploadFile($event)"
+          />
+          <div>{{ porcentagemEnvio | async }}</div>
+        </mat-list-item>
+<br><br>
+        <mat-form-field appearance="fill">
 
+          <mat-label>Nome do Evento: </mat-label>
+          <input matInput
+            formControlName="nomeEvento"
+            placeholder="Nome do Evento: "
+            name="nomeEvento"
+          />
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Descrição do Evento: </mat-label>
+          <textarea rows="8"
+            matInput
+            formControlName="descricaoEvento"
+            placeholder="Descrição do Evento: "
+            name="descricaoEvento"></textarea>
+
+          </mat-form-field>
+
+        <mat-card-actions>
+          <div class="row submit-button-container">
+            <button
+              mat-raised-button
+              class="submit-button"
+              color="primary"
+              type="submit"
+              [disabled]="!formularioEvento.valid">
+              salvar
+            </button>
+          </div>
+          </mat-card-actions>
+     </form>
+  </mat-card>

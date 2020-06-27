@@ -1,0 +1,84 @@
+<form class="container-formulario" (ngSubmit)="submit()" [formGroup]="formulario">
+
+    <mat-card>
+        <mat-card-header>
+
+            <div mat-card-avatar class="avatar" fxLayout fxLayoutAlign="center center">
+                <mat-icon>mms</mat-icon>
+            </div>
+
+            <mat-card-title>Cadastro</mat-card-title>
+            <mat-card-subtitle>cadastro do usuário</mat-card-subtitle>
+
+        </mat-card-header>
+
+        <mat-card-content fxLayout="column">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome" name="nome">
+                <mat-error *ngIf="formulario.controls['nome'].hasError('required')">O nome é obrigatório</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>Sobrenome</mat-label>
+                <input matInput formControlName="sobrenome" name="sobrenome">
+                <mat-error *ngIf="formulario.controls['sobrenome'].hasError('required')">O sobrenome é obrigatório</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput formControlName="email" name="email" type="email">
+                <mat-error *ngIf="formulario.controls['email'].hasError('required')">O e-mail é obrigatório</mat-error>
+                <mat-error *ngIf="formulario.controls['email'].hasError('email')">O e-mail não é válido</mat-error>
+            </mat-form-field>
+<br>
+            <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput formControlName="senha" name="senha" type="password">
+                <mat-error *ngIf="formulario.controls['senha'].hasError('required')">A senha é obrigatória</mat-error>
+            </mat-form-field>
+<br>
+            <mat-form-field appearance="outline">
+                <mat-label>Confirmar senha</mat-label>
+                <input matInput formControlName="confirmacaoSenha" name="confirmacaoSenha" type="password">
+                <mat-error *ngIf="formulario.controls['senha'].hasError('required')">A confirmação da senha é
+                    obrigatória</mat-error>
+            </mat-form-field>
+<br>
+            <mat-error *ngIf="usuarioJaCadastrado">Usuário já cadastrado</mat-error>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+
+            <div fxLayout="row">
+
+                <button mat-button class="uppercase" type="button" (click)="voltar()"
+                    [disabled]="formulario.disabled">
+                    Voltar
+                </button>
+
+                <button mat-button class="uppercase" type="reset" [disabled]="formulario.disabled">
+                    Limpar
+                </button>
+
+                <span fxFlex></span>
+
+                <div class="spinner-container" *ngIf="formulario.disabled">
+                    <mat-spinner strokeWidth="2" diameter="22"> </mat-spinner>
+                </div>
+
+                <button mat-flat-button color="primary" class="sabao" type="submit"
+                    [disabled]="formulario.disabled">
+                   Salvar
+                </button>
+
+            </div>
+
+        </mat-card-actions>
+
+    </mat-card>
+
+</form>
+

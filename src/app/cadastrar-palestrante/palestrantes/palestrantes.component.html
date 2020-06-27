@@ -1,27 +1,33 @@
-<mat-card class="exemple-card">
-    <div class="flex fill column lista-eventos">
-      <div class="flex row eventos" *ngFor="let palestrante of palestrantes">
-    
-        <mat-card-content>
-        <div class="grow flex column descricao-evento">
-          <div>
-            <h2>
-              {{ palestrante.nome }}
-            </h2>
-            <p>
-              {{ palestrante.sobreome }}
-            </p>
-            <p>
-              {{ palestrante.informacoes }}
-            </p>
-          </div>
-        </div>  
-        </mat-card-content>         
-    </div>
-    </div>
-    </mat-card>
-    <div class="grow">
-      <button (click)="editar()">Editar</button> 
-      <button (click)="excluir()">Excluir</button>
-      <button (click)="voltar()">Voltar</button> 
-    </div>
+<button mat-fab (click)="irParaCadastroPalestrante()">
+  <mat-icon>add</mat-icon>
+</button>
+<div class="container-eventos">
+  <div *ngFor="let palestrante of palestrantes | async">
+  <mat-card>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="splash">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item  (click)="delete(palestrante.id)"style="margin: 5px;">
+        <mat-icon>delete</mat-icon>
+        <span>Deletar</span>
+      </button>
+      <button mat-menu-item (click)="editar(palestrante)" style="margin: 5px;">
+        <mat-icon>assignment</mat-icon>
+       <span> Editar </span> 
+      </button>
+      </mat-menu>
+      <img  mat-card-image src={{palestrante.imagem}}>
+       <mat-card-title>
+        <h5>Nome: {{ palestrante.nome }}</h5>
+       </mat-card-title>
+      <mat-card-subtitle>
+        <p>Sobrenome: {{ palestrante.sobrenome }}</p>
+      </mat-card-subtitle>
+      <mat-card-subtitle>
+        <p>Informações: {{ palestrante.informacoes }}</p>
+      </mat-card-subtitle>
+  </mat-card>
+  
+</div>
+</div>

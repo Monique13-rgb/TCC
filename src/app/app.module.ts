@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,LOCALE_ID } from '@angular/core';
+
 
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -7,17 +8,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
-import { RootNavComponent } from './root-nav/root-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
-import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatInputModule} from '@angular/material/input';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+import localept from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localept, 'pt');
 
 import { AdicionarEventosComponent } from './adicionar-eventos/adicionar-eventos.component';
 import { ListaEventosComponent } from './adicionar-eventos/eventos/lista-eventos.component';
@@ -27,12 +34,18 @@ import { ListaProgramacaoComponent } from './cadastrar-programacao/programacao/l
 import { CadastrarPalestranteComponent } from './cadastrar-palestrante/cadastrar-palestrante.component';
 import { EditEventComponent } from './adicionar-eventos/edit-event/edit-event.component';
 import { EditProgramacaoComponent } from './cadastrar-programacao/edit-programacao/edit-programacao.component';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from 'src/environments/environment';
+
+import { LoginComponent } from './login/login.component';
+import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { HomeComponent } from './home/home.component';
+
 
 
 
@@ -40,7 +53,6 @@ import { environment } from 'src/environments/environment';
   declarations: [
     AppComponent,
     ListaEventosComponent,
-    RootNavComponent,
     PalestrantesComponent,
     CadastrarProgramacaoComponent,
     ListaProgramacaoComponent,
@@ -48,6 +60,11 @@ import { environment } from 'src/environments/environment';
     EditEventComponent,
     EditProgramacaoComponent,
     AdicionarEventosComponent,
+    LoginComponent,
+    CadastroUsuarioComponent,
+    HomeComponent,
+   
+  
   
   ],
   imports: [
@@ -59,24 +76,32 @@ import { environment } from 'src/environments/environment';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
+    MatInputModule,
     MatListModule,
     MatCardModule,
-    NgxMaterialTimepickerModule,
+    MatMenuModule,
+    MatGridListModule,
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
+    NgxMaterialTimepickerModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule.enablePersistence(),
     AngularFireStorageModule,
-    AngularFireStorageModule,
+    MatProgressSpinnerModule
+
 
 
 
     
   ],
-  providers: [],
+  providers: [
+       { provide: LOCALE_ID, useValue: 'pt' }
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

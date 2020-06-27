@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AppService } from '../../app.service';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Programacao } from '../../models/programacao.model';
+import { Observable } from 'rxjs';
+
+import { Evento } from 'src/app/models/evento.model';
+import { Location } from '@angular/common';
+import { ProgramacaoService } from 'src/app/services/programacao.service';
+
+import {formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-lista-programacao',
@@ -9,19 +15,38 @@ import { Programacao } from '../../models/programacao.model';
   styleUrls: ['./lista-programacao.component.scss']
 })
 export class ListaProgramacaoComponent implements OnInit {
-programacaos: Programacao;
+  prog: Observable<Programacao[]>;
+  idEvento: string;
+  evento: Evento;
+  testedata: Date;
 
-  constructor(public appService: AppService, public router: Router) { }
+  constructor(public programacaoService: ProgramacaoService, public router: Router
+    ,public activatedRoute: ActivatedRoute,
+    private location: Location) { 
+    }
+    
+   async ngOnInit() {
+    this.idEvento = this.activatedRoute.snapshot.paramMap.get('id');
+    this.prog = this.programacaoService.getObservable(this.idEvento);
+  }
 
-  ngOnInit(): void {
-  }
-  editarProgramacao(){
-    this.router.navigateByUrl('editProgramacao/:id')
-  }
-  excluirProgramacao(){
 
+  async delete(programacaoId) {
+    await this.programacaoService.delete(programacaoId);
   }
+
+  async editar(programacao: Programacao) {
+    this.router.navigate(["editProgramacao",programacao.id]); 
+  }
+
+
+
+
   voltar(){
-    this.router.navigateByUrl('listaEventos')
+    this.location.back();
   }
+  irParaCadastroProg(){
+    
+    this.router.navigate(["cadastrarProgramacao",this.idEvento]);
+  } 
 }

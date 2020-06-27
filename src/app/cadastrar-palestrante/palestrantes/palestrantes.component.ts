@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../../app.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Palestrante } from '../../models/palestrante.model';
+import { Observable } from 'rxjs';
+import { Evento } from 'src/app/models/evento.model';
+import { Location } from '@angular/common';
+import { PalestranteService } from 'src/app/services/palestrante.service';
 
 @Component({
   selector: 'app-palestrantes',
@@ -9,18 +12,31 @@ import { Palestrante } from '../../models/palestrante.model';
   styleUrls: ['./palestrantes.component.scss']
 })
 export class PalestrantesComponent implements OnInit {
-palestrantes: Palestrante;
-  constructor(public appService: AppService, public router: Router) { }
+palestrantes: Observable<Palestrante[]>;
+  idEvento: string;
+  evento: Evento;
 
-  ngOnInit(): void {
+  constructor(public palestranteService: PalestranteService, public router: Router
+    ,public activatedRoute: ActivatedRoute,
+    private location: Location) { }
+
+   async ngOnInit() {
+    this.idEvento = this.activatedRoute.snapshot.paramMap.get('id');
+    this.palestrantes = this.palestranteService.getObservable(this.idEvento);
   }
-editar(){
-  this.router.navigateByUrl('edit/:id')
-}
-excluir(){
+
+
+  async delete(palestranteId) {
+    await this.palestranteService.delete(palestranteId);
+  }
+
+  async editar(palestrante: Palestrante) {
+    this.router.navigate(["edit",palestrante.id]); 
 
 }
-voltar(){
-  this.router.navigateByUrl('listaEventos')
+irParaCadastroPalestrante(){
+    
+  this.router.navigate(["cadastrarPalestrante",this.idEvento]);
+} 
 }
-}
+

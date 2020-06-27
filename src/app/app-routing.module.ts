@@ -14,25 +14,39 @@ import { CadastrarPalestranteComponent } from './cadastrar-palestrante/cadastrar
 import { EditComponent } from './cadastrar-palestrante/palestrantes/edit/edit.component';
 
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { LoginComponent } from './login/login.component';
+import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'listaEventos', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
-  { path:  'adicionarEventos', component: AdicionarEventosComponent},
-  { path: 'listaEventos', component: ListaEventosComponent},
-  { path:  'editEvent/:id', component: EditEventComponent},
+   { path:  'login', component: LoginComponent},
 
-  { path:  'cadastrarProgramacao', component: CadastrarProgramacaoComponent},
-  { path:  'listaProgramacao/:id', component: ListaProgramacaoComponent},
-  { path:  'editProgramacao/:id', component: EditProgramacaoComponent},
+   {
+    path: 'home', component: HomeComponent,
+    
+      children: [
 
-  { path:  'cadastrarPalestrante', component: CadastrarPalestranteComponent},
-  { path:  'palestrantes/:id', component: PalestrantesComponent},
-  { path:  'edit/:id', component: EditComponent},
- 
-  { path: '**', component: PaginaNaoEncontradaComponent }
-];
+    {path:   'listaEventos', component: ListaEventosComponent},
+    { path:  'cadastroNovoUsuario', component: CadastroUsuarioComponent},
+    { path:  'adicionarEventos', component: AdicionarEventosComponent},
+   
+    { path:  'editEvent/:id', component: EditEventComponent},
+  
+    { path:  'cadastrarProgramacao/:id', component: CadastrarProgramacaoComponent},
+    { path:  'listaProgramacao/:id', component: ListaProgramacaoComponent},
+    { path:  'editProgramacao/:id', component: EditProgramacaoComponent},
+  
+    { path:  'cadastrarPalestrante/:id', component: CadastrarPalestranteComponent},
+    { path:  'palestrantes/:id', component: PalestrantesComponent},
+    { path:  'edit/:id', component: EditComponent},
+   
+    { path: '**', component: PaginaNaoEncontradaComponent }
+],
+   }
+  ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,39 +1,48 @@
-<mat-card class="exemple-card">
-    <div class="flex fill column lista-eventos">
-      <div class="flex row eventos" *ngFor="let programacao of programacaos">
-    
-        <mat-card-content>
+<button mat-fab color="orange" (click)="irParaCadastroProg()">
+  <mat-icon>add</mat-icon>
+</button>
+<div class="container-eventos">
+<div *ngFor="let programacao of prog | async ">
+  <mat-card class="exemple-card">
+    <mat-card-content class="batom">
+   <button mat-icon-button [matMenuTriggerFor]="menu" class="splash">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="delete(programacao.id)">
+        <mat-icon>delete</mat-icon>
+        <span>Deletar</span>
+      </button>
+      <button mat-menu-item (click)="editar(programacao)">
+        <mat-icon>assignment</mat-icon>
+       <span> Editar </span> 
+      </button>
+    </mat-menu>
+    <h2>{{ programacao.dataInicio.toDate() | date }} {{ programacao.horaInicio}}</h2>
+</mat-card-content>
+      <mat-divider></mat-divider>
+<mat-card-content>
         <div class="grow flex column descricao-evento">
-          <div>
-            <h2>
-              {{ programacao.nomePalestrante }}
+           <h2>
+            Nome do palestrante:  {{ programacao.nomePalestrante }} 
             </h2>
-            <p>
-              {{ programacao.tipo }}
-            </p>
-            <p>
-              {{ programacao.local }}
-            </p>
-            <p>
-                {{  programacao.vagas }}
-        </p>  
-        <p>
-            {{  programacao.valor }}
-          </p>
-          <p>
-            {{  programacao.data }}
-          </p>
-          <p>
-            {{  programacao.hora }}
-          </p>
-          </div>
-        </div>  
-        </mat-card-content>
-    </div>
-    </div>
-    </mat-card>
-    <div>
-      <button  mat-raised-button   (click)="editarProgramacao()">Editar</button> 
-      <button  mat-raised-button   (click)="excluirProgramacao()">Excluir</button> 
-      <button  mat-stroked-button  (click)="voltar()">Voltar</button>
-    </div>
+            <h2>
+            Tipo:  {{ programacao.tipo }}
+            </h2>
+            <h2>
+            Local:  {{ programacao.local }}
+            </h2>
+            <h2>
+            Quantidade de vagas:  {{ programacao.vagas }}
+            </h2>
+            <h2>
+            Valor:  {{ programacao.valor }}
+            <mat-divider></mat-divider> 
+            </h2>
+          <div class="rodapé">
+            <h2>{{ programacao.dataFinal.toDate() | date }} {{ programacao.horaFinal }}</h2>
+          </div> 
+        </div>
+       </mat-card-content>
+      </mat-card>
+ 

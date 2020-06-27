@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -8,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class EditComponent implements OnInit {
 
-  constructor( public router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

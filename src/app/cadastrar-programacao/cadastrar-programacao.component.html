@@ -1,0 +1,107 @@
+  
+<mat-card-title>Cadastrar Programação</mat-card-title>
+<br>
+<mat-card>
+<form [formGroup]="formularioProg" (ngSubmit)="cadastrar()">
+ 
+ <!--------------------------------------------> 
+  <mat-form-field style="margin: 5px;">
+    <mat-label>Data Inicial: </mat-label>
+    <input matInput 
+    [matDatepicker]="picker1"  
+    formControlName="dataInicio">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <!-------------------------------------------->
+  <mat-form-field style="margin: 5px;">
+    <mat-label>Data Final: </mat-label>
+    <input matInput 
+    [matDatepicker]="picker2" 
+    formControlName="dataFinal">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+  <br><br>
+  <!-------------------------------------------->
+  <mat-form-field class="example-full-width" style="margin: 5px;">
+      <input  matInput placeholder="24hr format" 
+      aria-label="24hr format" 
+      [ngxTimepicker]="fullTime" 
+      [format]="24"  readonly
+      formControlName="horaInicio">
+      <ngx-material-timepicker #fullTime></ngx-material-timepicker>
+  </mat-form-field>
+  <!-------------------------------------------->
+  <mat-form-field class="example-full-width" style="margin: 5px;">
+      <input  matInput placeholder="24hr format" 
+      aria-label="24hr format" 
+      [ngxTimepicker]="fullTime2" 
+      [format]="24"  readonly
+      formControlName="horaFinal">
+      <ngx-material-timepicker #fullTime2></ngx-material-timepicker>
+  </mat-form-field>
+  <br><br>
+  <!--------------------------------------------> 
+    <mat-form-field appearance="fill" style="margin: 5px;">
+    <mat-label>Nome do Palestrante: </mat-label>
+    <input matInput
+    formControlName="nomePalestrante"
+    placeholder="Nome do Palestrante: "
+    name="nomePalestrante"/>
+    </mat-form-field>
+<!-------------------------------------------->    
+      <mat-form-field appearance="fill" style="margin: 5px;">
+
+      <mat-label>Tipo: </mat-label>
+      <input
+        matInput
+        formControlName="tipo"
+        placeholder="Tipo: "
+        name="tipo"/>
+      </mat-form-field>
+<!-------------------------------------------->
+ <mat-form-field appearance="fill" style="margin: 5px;">
+  <mat-label>Local: </mat-label>
+  <input matInput formControlName="local"
+  placeholder="Local: "
+  name="local"/>
+  </mat-form-field>
+<!-------------------------------------------->
+<mat-form-field appearance="fill" style="margin: 5px;">
+  <mat-label>Vagas: </mat-label>
+  <input matInput type="number"
+  formControlName="vagas"
+  placeholder="Vagas: "
+  name="vagas"/>
+  </mat-form-field>
+<!-------------------------------------------->
+<mat-form-field appearance="fill" style="margin: 5px;">
+  <mat-label>Valor: </mat-label>
+  <input matInput type="number"
+  formControlName="valor"
+  placeholder="Valor: "
+  name="valor"
+  />
+  </mat-form-field>
+  <br><br>
+<!-------------------------------------------->
+
+
+
+
+<mat-card-actions>
+      <div class="row submit-button-container">
+        <button
+          mat-raised-button
+          class="submit-button"
+          color="primary"
+          type="submit"
+          [disabled]="!formularioProg.valid">
+          Criar
+        </button>
+       <button mat-stroked-button (click)="voltar()" class="sabão">Voltar</button>
+      </div>
+    </mat-card-actions>
+</form>
+</mat-card>

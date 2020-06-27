@@ -1,0 +1,66 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"
+    >
+    
+     <mat-toolbar>
+      <img class="img" src="https://firebasestorage.googleapis.com/v0/b/mytcc-ca2f7.appspot.com/o/logo%20do%20site.png?alt=media&token=d1ab0c87-8e90-4bd9-8135-61e68eb78a50">
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+      <mat-nav-list>
+        <a class="navigation-item" mat-list-item 
+        [routerLink]="['listaEventos']"><mat-icon>list</mat-icon>
+        Eventos</a>
+        <mat-divider></mat-divider>
+        <a
+          class="navigation-item"
+          mat-list-item 
+          [routerLink]="['cadastrarEvento']"
+          ><mat-icon>add</mat-icon>
+          Cadastrar</a>
+          <mat-divider></mat-divider>
+          <a class="navigation-item" mat-list-item 
+          [routerLink]="['cadastroNovoUsuario']"><mat-icon>perm_contact_calendar</mat-icon>
+          Usúarios</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+      
+        <button mat-button (click)="voltar()" class="voltar">
+          <mat-icon>keyboard_backspace</mat-icon>
+        </button>
+    
+  
+        <button mat-button (click)="sair()" class="sair">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+  
+      <button
+          type="button"
+          aria
+          -label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async"
+        
+        >
+        <mat-icon aria-label="Side nav toggle icon">
+        menu
+        </mat-icon>
+        </button>
+        <span class="title"></span>
+      </mat-toolbar>
+      <div class="container-content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+ 
+  
+  
