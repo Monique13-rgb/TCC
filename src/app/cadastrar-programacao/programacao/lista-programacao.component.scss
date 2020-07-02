@@ -1,28 +1,26 @@
 .exemple-card{
-    width: 400px;
+    width: 450px;
     background-color:white;
     height: 320px;
+    left: 20px;
   }
-  .container-eventos{
+  .container-prog{
     display: flex;
-    flex-wrap: wrap;
-    width: 20px;
+  flex-wrap: wrap;
 
-    
-  }
+}
 
 .mat-fab {
     background-color:#170db3;
     left: 950px;
 }
-.descricao-evento {
+.descricao-prog {
     padding: 16px;
-    margin: center;
-    width: 100%;
-    text-align: left;
+    width: 400px;
+    text-align: center;
     font-style: normal;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 800px;
+    font-weight: bold;
 
 .rodapé{
     text-align: center;
@@ -31,7 +29,7 @@
 }
 .splash{
     float: right;
-    background-color: #170db3;
+    background-color: white;
   }
 
 .grow {
@@ -41,4 +39,7 @@
 }
 .batom{
     text-align: center;
+}
+.nome-palestrante{
+    text-align: left;
 }

@@ -7,8 +7,6 @@ import { Evento } from 'src/app/models/evento.model';
 import { Location } from '@angular/common';
 import { ProgramacaoService } from 'src/app/services/programacao.service';
 
-import {formatDate } from '@angular/common';
-
 @Component({
   selector: 'app-lista-programacao',
   templateUrl: './lista-programacao.component.html',
@@ -20,12 +18,13 @@ export class ListaProgramacaoComponent implements OnInit {
   evento: Evento;
   testedata: Date;
 
-  constructor(public programacaoService: ProgramacaoService, public router: Router
-    ,public activatedRoute: ActivatedRoute,
-    private location: Location) { 
-    }
-    
-   async ngOnInit() {
+  constructor(public programacaoService: ProgramacaoService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute,
+    private location: Location) {
+  }
+
+  async ngOnInit() {
     this.idEvento = this.activatedRoute.snapshot.paramMap.get('id');
     this.prog = this.programacaoService.getObservable(this.idEvento);
   }
@@ -36,17 +35,17 @@ export class ListaProgramacaoComponent implements OnInit {
   }
 
   async editar(programacao: Programacao) {
-    this.router.navigate(["editProgramacao",programacao.id]); 
+    this.router.navigate(["/home/editProgramacao", programacao.id]);
+  }
+
+  irParaCadastroProg() {
+
+    this.router.navigate(["/home/cadastrarProgramacao", this.idEvento]);
   }
 
 
-
-
-  voltar(){
+  voltar() {
     this.location.back();
   }
-  irParaCadastroProg(){
-    
-    this.router.navigate(["cadastrarProgramacao",this.idEvento]);
-  } 
+
 }

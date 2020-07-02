@@ -29,15 +29,15 @@ export class ListaEventosComponent implements OnInit {
   }
 
   async editar(evento: Evento) {
-    this.router.navigate(["editEvent",evento.id]); 
+    this.router.navigate(["/home/editEvent",evento.id]); 
   }
 
 programacao(evento: Evento) {
-this.router.navigate(["listaProgramacao",evento.id]); 
+this.router.navigate(["/home/listaProgramacao",evento.id]); 
 }
 
 palestrantes(evento: Evento){
-  this.router.navigate(["palestrantes",evento.id]); 
+  this.router.navigate(["/home/palestrantes",evento.id]); 
 
 }
 

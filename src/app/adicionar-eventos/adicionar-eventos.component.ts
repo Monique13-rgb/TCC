@@ -40,7 +40,7 @@ export class AdicionarEventosComponent implements OnInit {
     novoEvento.imagem = await this.enviarImagem();
     }
    this.evento = await this.appService.add(novoEvento); 
-    this.router.navigate(["listaEventos"]);
+    this.router.navigate(["/home/listaEventos"]);
   
   }
   uploadFile(event) {

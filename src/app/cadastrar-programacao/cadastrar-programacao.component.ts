@@ -45,7 +45,7 @@ export class CadastrarProgramacaoComponent implements OnInit {
     novaProgramacao.idEvento = this.idEvento;
 
     await this.programacaoService.add(novaProgramacao);
-    this.router.navigate(["listaProgramacao",this.idEvento]);
+    this.router.navigate(["/home/listaProgramacao",this.idEvento]);
 
   }
   voltar(){

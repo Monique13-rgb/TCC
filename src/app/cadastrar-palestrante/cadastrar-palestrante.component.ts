@@ -50,7 +50,7 @@ export class CadastrarPalestranteComponent implements OnInit {
      }
      
     await this.palestranteService.add(novoPalestrante);
-    this.router.navigate(["palestrantes",this.idEvento]);
+    this.router.navigate(["/home/palestrantes",this.idEvento]);
 
   }
   uploadFile(event) {

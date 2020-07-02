@@ -1,7 +1,7 @@
-<button mat-fab color="orange" (click)="irParaCadastroProg()">
+<button mat-fab (click)="irParaCadastroProg()">
   <mat-icon>add</mat-icon>
 </button>
-<div class="container-eventos">
+<div class="container-prog">
 <div *ngFor="let programacao of prog | async ">
   <mat-card class="exemple-card">
     <mat-card-content class="batom">
@@ -18,16 +18,16 @@
        <span> Editar </span> 
       </button>
     </mat-menu>
-    <h2>{{ programacao.dataInicio.toDate() | date }} {{ programacao.horaInicio}}</h2>
+    <h2>{{ programacao.dataInicio.toDate() | date:'dd/MM/yyyy' }} - {{ programacao.horaInicio}}</h2>
 </mat-card-content>
       <mat-divider></mat-divider>
 <mat-card-content>
-        <div class="grow flex column descricao-evento">
-           <h2>
+        <div class="descricao-prog">
+           <h2 class="nome-palestrante">
             Nome do palestrante:  {{ programacao.nomePalestrante }} 
             </h2>
             <h2>
-            Tipo:  {{ programacao.tipo }}
+                {{ programacao.tipo }}
             </h2>
             <h2>
             Local:  {{ programacao.local }}
@@ -36,11 +36,11 @@
             Quantidade de vagas:  {{ programacao.vagas }}
             </h2>
             <h2>
-            Valor:  {{ programacao.valor }}
+            Valor: R${{ programacao.valor }}
             <mat-divider></mat-divider> 
             </h2>
           <div class="rodapé">
-            <h2>{{ programacao.dataFinal.toDate() | date }} {{ programacao.horaFinal }}</h2>
+            <h2>{{ programacao.dataFinal.toDate() | date:'dd/MM/yyyy' }} - {{ programacao.horaFinal }}</h2>
           </div> 
         </div>
        </mat-card-content>

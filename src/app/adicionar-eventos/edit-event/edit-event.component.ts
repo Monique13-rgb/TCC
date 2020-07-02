@@ -50,7 +50,7 @@ await refImagem.delete();
   }
 eventoeditado.id = this.evento.id;
  await this.appService.update(eventoeditado);
-this.router.navigate(['listaEventos']);
+this.router.navigate(['/home/listaEventos']);
 
 }
 

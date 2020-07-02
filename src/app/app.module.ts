@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule,LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,14 +13,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatInputModule} from '@angular/material/input';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatInputModule } from '@angular/material/input';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import localept from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
@@ -33,8 +34,8 @@ import { CadastrarProgramacaoComponent } from './cadastrar-programacao/cadastrar
 import { ListaProgramacaoComponent } from './cadastrar-programacao/programacao/lista-programacao.component';
 import { CadastrarPalestranteComponent } from './cadastrar-palestrante/cadastrar-palestrante.component';
 import { EditEventComponent } from './adicionar-eventos/edit-event/edit-event.component';
+import { EditPalestranteComponent } from './edit-palestrante/edit-palestrante.component';
 import { EditProgramacaoComponent } from './cadastrar-programacao/edit-programacao/edit-programacao.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
@@ -47,8 +48,6 @@ import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.co
 import { HomeComponent } from './home/home.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,14 +57,16 @@ import { HomeComponent } from './home/home.component';
     ListaProgramacaoComponent,
     CadastrarPalestranteComponent,
     EditEventComponent,
-    EditProgramacaoComponent,
     AdicionarEventosComponent,
     LoginComponent,
     CadastroUsuarioComponent,
     HomeComponent,
-   
-  
-  
+    EditPalestranteComponent,
+    EditProgramacaoComponent,
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -96,10 +97,10 @@ import { HomeComponent } from './home/home.component';
 
 
 
-    
+
   ],
   providers: [
-       { provide: LOCALE_ID, useValue: 'pt' }
+    { provide: LOCALE_ID, useValue: 'pt' }
   ],
 
   bootstrap: [AppComponent]

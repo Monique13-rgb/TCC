@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Usuario } from '../models/usuario.model';
 import { EventEmitter } from 'protractor';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

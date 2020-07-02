@@ -1,5 +1,5 @@
 <mat-card-title>Editar Evento</mat-card-title>
-    <br>
+  <br>
   <mat-card class="banana-evento">
     <form [formGroup]="formularioEvento" (ngSubmit)="editar()">
 <img class ="imagem-evento"
@@ -15,9 +15,9 @@
           <div>{{ porcentagemEnvio | async }}</div>
         </mat-list-item>
 <br><br>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="orange">
 
-          <mat-label>Nome do Evento: </mat-label>
+          <mat-label>Nome do Evento:</mat-label>
           <input matInput
             formControlName="nomeEvento"
             placeholder="Nome do Evento: "
@@ -25,7 +25,7 @@
           />
         </mat-form-field>
         <br>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="laranja">
           <mat-label>Descrição do Evento: </mat-label>
           <textarea rows="8"
             matInput
@@ -36,16 +36,13 @@
           </mat-form-field>
 
         <mat-card-actions>
-          <div class="row submit-button-container">
             <button
               mat-raised-button
               class="submit-button"
-              color="primary"
               type="submit"
               [disabled]="!formularioEvento.valid">
               salvar
             </button>
-          </div>
           </mat-card-actions>
      </form>
   </mat-card>

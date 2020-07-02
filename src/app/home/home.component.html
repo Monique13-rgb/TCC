@@ -1,3 +1,4 @@
+
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav
       #drawer
@@ -14,18 +15,18 @@
     <mat-divider></mat-divider>
       <mat-nav-list>
         <a class="navigation-item" mat-list-item 
-        [routerLink]="['listaEventos']"><mat-icon>list</mat-icon>
+        [routerLink]="['/home/listaEventos']"><mat-icon>list</mat-icon>
         Eventos</a>
         <mat-divider></mat-divider>
         <a
           class="navigation-item"
           mat-list-item 
-          [routerLink]="['cadastrarEvento']"
+          [routerLink]="['/home/adicionarEventos']"
           ><mat-icon>add</mat-icon>
           Cadastrar</a>
           <mat-divider></mat-divider>
           <a class="navigation-item" mat-list-item 
-          [routerLink]="['cadastroNovoUsuario']"><mat-icon>perm_contact_calendar</mat-icon>
+          [routerLink]="['/home/cadastroNovoUsuario']"><mat-icon>perm_contact_calendar</mat-icon>
           Usúarios</a>
       </mat-nav-list>
     </mat-sidenav>
@@ -41,13 +42,10 @@
         <mat-icon>exit_to_app</mat-icon>
       </button>
   
-      <button
-          type="button"
-          aria
-          -label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()"
-          *ngIf="isHandset$ | async"
+      <button type="button" aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async"
         
         >
         <mat-icon aria-label="Side nav toggle icon">
@@ -58,9 +56,9 @@
       </mat-toolbar>
       <div class="container-content">
         <router-outlet></router-outlet>
-      </div>
+    </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
- 
+
   
   

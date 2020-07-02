@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
+import { shareReplay, map } from 'rxjs/operators';
+import { BreakpointObserver,Breakpoints } from '@angular/cdk/layout';
 
 class Autenticacao {
     email: string;
@@ -14,6 +17,11 @@ class Autenticacao {
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+    isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
     erro: boolean;
 
@@ -23,6 +31,7 @@ export class LoginComponent implements OnInit {
     });
 
     constructor(
+        private breakpointObserver: BreakpointObserver,
         private formBuilder: FormBuilder,
         private router: Router,
         public authFire: AngularFireAuth
