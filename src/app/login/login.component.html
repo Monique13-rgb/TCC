@@ -1,105 +1,69 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav
-      #drawer
-      class="sidenav"
-      fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    
-     <mat-toolbar>
-      <img class="img" src="https://firebasestorage.googleapis.com/v0/b/mytcc-ca2f7.appspot.com/o/logo%20do%20site.png?alt=media&token=d1ab0c87-8e90-4bd9-8135-61e68eb78a50">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+
+    <mat-toolbar>
+      <img class="img"
+        src="https://firebasestorage.googleapis.com/v0/b/mytcc-ca2f7.appspot.com/o/logo%20do%20site.png?alt=media&token=d1ab0c87-8e90-4bd9-8135-61e68eb78a50">
     </mat-toolbar>
-<mat-divider></mat-divider>
-   </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-toolbar color="primary">
-    <button type="button" aria-label="Toggle sidenav"
-      mat-icon-button
-      (click)="drawer.toggle()"
-      *ngIf="isHandset$ | async">
+    <mat-divider></mat-divider>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-    </button>
-        <span class="title"></span>
-      </mat-toolbar>
-      <div class="container-content">
-        <form class="container-formulario" (ngSubmit)="submit()" [formGroup]="formulario">
-            <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-            
-                <mat-card class="box">
-                    <mat-card-header>
-                    
-                        <mat-card-title>Login</mat-card-title>
-                        <mat-card-subtitle>Entre com as informações abaixo para acessar a aplicação</mat-card-subtitle>
-            
-                    </mat-card-header>
-            
-                    <mat-card-content fxLayout="column">
-            
-                        <mat-form-field appearance="outline">
-                            <mat-label>E-mail</mat-label>
-                            <input matInput formControlName="email" name="email" type="email">
-                            <mat-error *ngIf="formulario.controls['email'].hasError('required')">O e-mail é obrigatório</mat-error>
-                            <mat-error *ngIf="formulario.controls['email'].hasError('email')">O e-mail não é válido</mat-error>
-                        </mat-form-field>
-                        <br>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Senha</mat-label>
-                            <input matInput formControlName="senha" name="senha" type="password">
-                            <mat-error *ngIf="formulario.controls['senha'].hasError('required')">A senha é obrigatória</mat-error>
-                        </mat-form-field>
-                        <mat-error *ngIf="erro">O usuário não existe ou a senha está incorreta</mat-error>
-                </mat-card-content>
-            
-                    <mat-card-actions>
-            
-                        <div fxLayout="row">
-            
-                            <span fxFlex></span>
-            
-                            <button mat-flat-button color="primary" class="uppercase" type="submit"
-                            [disabled]="formulario.disabled">
-                            Entrar
-                           </button>
-                           <br><br>
-                        </div>
-            
-                    </mat-card-actions>
-             </mat-card>
-            
-             </div>
-            
-            </form>
+      </button>
+      <span class="title"></span>
+    </mat-toolbar>
+    <div class="container-content">
+      <form class="container-formulario" (ngSubmit)="submit()" [formGroup]="formulario">
+        <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+          <mat-card class="box">
+            <mat-card-header>
+
+              <mat-card-title>Login</mat-card-title>
+              <mat-card-subtitle>Entre com as informações abaixo para acessar a aplicação</mat-card-subtitle>
+
+            </mat-card-header>
+
+            <mat-card-content fxLayout="column">
+
+              <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput formControlName="email" name="email" type="email">
+                <mat-error *ngIf="formulario.controls['email'].hasError('required')">O e-mail é obrigatório</mat-error>
+                <mat-error *ngIf="formulario.controls['email'].hasError('email')">O e-mail não é válido</mat-error>
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput formControlName="senha" name="senha" type="password">
+                <mat-error *ngIf="formulario.controls['senha'].hasError('required')">A senha é obrigatória</mat-error>
+              </mat-form-field>
+              <mat-error *ngIf="erro">O usuário não existe ou a senha está incorreta</mat-error>
+            </mat-card-content>
+
+            <mat-card-actions>
+
+              <div fxLayout="row">
+
+                <span fxFlex></span>
+
+                <button mat-flat-button color="primary" class="uppercase" type="submit"
+                  [disabled]="formulario.disabled">
+                  Entrar
+                </button>
+                <br><br>
+              </div>
+
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
+
+      </form>
     </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+  </mat-sidenav-content>
+</mat-sidenav-container>

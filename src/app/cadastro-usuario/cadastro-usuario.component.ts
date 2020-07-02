@@ -46,8 +46,6 @@ export class CadastroUsuarioComponent implements OnInit {
             return;
         }
 
-        this.formulario.disable();
-
         const novoUsuario = this.formulario.value as NovoUsuario;
 
         try {
@@ -61,13 +59,12 @@ export class CadastroUsuarioComponent implements OnInit {
             } as Usuario;
 
             usuario = await this.usuariosService.add(uid, usuario);
+            this.router.navigate(['home']);
 
         } catch (error) {
 
             console.log(error);
             this.usuarioJaCadastrado = true;
-
-            this.formulario.enable();
 
         }
 
