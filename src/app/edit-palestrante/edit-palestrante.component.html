@@ -20,13 +20,6 @@
       <input matInput formControlName="sobrenome" placeholder="Sobrenome do Palestrante: " name="sobrenome" />
     </mat-form-field>
     <br>
-    <mat-form-field appearance="fill" class="babane">
-      <mat-label>Informações: </mat-label>
-      <textarea rows="4" matInput formControlName="informacoes" placeholder="Informações do Palestrante: "
-        name="informacoes"></textarea>
-
-    </mat-form-field>
-
     <mat-card-actions>
         <button mat-raised-button class="submit-button" type="submit"
           [disabled]="!formPalestrante.valid">

@@ -7,11 +7,12 @@ import { Evento } from '../models/evento.model';
   providedIn: "root",
 })
 export class AppService {
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore) { }
 
   getObservable(): Observable<Evento[]> {
     const ref = this.firestore
       .collection<Evento>("eventos", (ref) => ref.orderBy("nomeEvento"));
+      console.log(ref.valueChanges);
     return ref.valueChanges({ idField: "id" });
   }
 

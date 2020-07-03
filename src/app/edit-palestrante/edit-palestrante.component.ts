@@ -24,7 +24,6 @@ export class EditPalestranteComponent implements OnInit {
   formPalestrante = new FormGroup({
     nome: new FormControl(null),
     sobrenome: new FormControl(null),
-    informacoes: new FormControl(null),
 
   });
 

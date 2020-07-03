@@ -25,7 +25,6 @@ export class CadastrarPalestranteComponent implements OnInit {
   formPalestrante = new FormGroup({
     nome: new FormControl(null),
     sobrenome: new FormControl(null),
-    informacoes: new FormControl(null),
     imagem: new FormControl(null,[Validators.required]),
    
   });
@@ -73,8 +72,5 @@ export class CadastrarPalestranteComponent implements OnInit {
             .subscribe();
    });
  
-}
-voltar(){
-  this.location.back();
 }
 }

@@ -38,16 +38,6 @@
       />
     
     </mat-form-field>
-    <br>
-      <mat-form-field appearance="fill">
-      <mat-label>Informações: </mat-label>
-      <textarea rows="4"
-        matInput
-        formControlName="informacoes"
-        placeholder="Informações: "
-        name="informacoes"></textarea>
-
-      </mat-form-field>
       <mat-card-actions>
       <button 
       mat-stroked-button
@@ -57,7 +47,6 @@
       [disabled]="formPalestrante.disabled">
       Salvar
       </button>
-      <button mat-stroked-button (click)="voltar()" class="sabão">Voltar</button>
       </mat-card-actions>
 </form>
 </mat-card>

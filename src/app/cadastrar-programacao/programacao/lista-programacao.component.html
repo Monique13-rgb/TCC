@@ -2,47 +2,46 @@
   <mat-icon>add</mat-icon>
 </button>
 <div class="container-prog">
-<div *ngFor="let programacao of prog | async ">
-  <mat-card class="exemple-card">
-    <mat-card-content class="batom">
-   <button mat-icon-button [matMenuTriggerFor]="menu" class="splash">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="delete(programacao.id)">
-        <mat-icon>delete</mat-icon>
-        <span>Deletar</span>
-      </button>
-      <button mat-menu-item (click)="editar(programacao)">
-        <mat-icon>assignment</mat-icon>
-       <span> Editar </span> 
-      </button>
-    </mat-menu>
-    <h2>{{ programacao.dataInicio.toDate() | date:'dd/MM/yyyy' }} - {{ programacao.horaInicio}}</h2>
-</mat-card-content>
+  <div *ngFor="let programacao of prog | async ">
+    <mat-card class="exemple-card">
+      <mat-card-content class="batom">
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="splash">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="delete(programacao.id)">
+            <mat-icon>delete</mat-icon>
+            <span>Deletar</span>
+          </button>
+          <button mat-menu-item (click)="editar(programacao)">
+            <mat-icon>assignment</mat-icon>
+            <span> Editar </span>
+          </button>
+        </mat-menu>
+        <h2>{{ programacao.dataInicio.toDate() | date:'dd/MM/yyyy' }} - {{ programacao.horaInicio}}</h2>
+      </mat-card-content>
       <mat-divider></mat-divider>
-<mat-card-content>
+      <mat-card-content>
         <div class="descricao-prog">
-           <h2 class="nome-palestrante">
-            Nome do palestrante:  {{ programacao.nomePalestrante }} 
-            </h2>
-            <h2>
-                {{ programacao.tipo }}
-            </h2>
-            <h2>
-            Local:  {{ programacao.local }}
-            </h2>
-            <h2>
-            Quantidade de vagas:  {{ programacao.vagas }}
-            </h2>
-            <h2>
+          <h3 class="nome-palestrante">
+            Palestrante: {{ programacao.nomePalestrante }}
+          </h3>
+          <h3>
+            Tipo: {{ programacao.tipo }}
+          </h3>
+          <h3>
+            Local: {{ programacao.local }}
+          </h3>
+          <h3>
+            Quantidade de vagas: {{ programacao.vagas }}
+          </h3>
+          <h3>
             Valor: R${{ programacao.valor }}
-            <mat-divider></mat-divider> 
-            </h2>
+            <mat-divider></mat-divider>
+          </h3>
           <div class="rodapé">
             <h2>{{ programacao.dataFinal.toDate() | date:'dd/MM/yyyy' }} - {{ programacao.horaFinal }}</h2>
-          </div> 
+          </div>
         </div>
-       </mat-card-content>
-      </mat-card>
- 
+      </mat-card-content>
+    </mat-card>

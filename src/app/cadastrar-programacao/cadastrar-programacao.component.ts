@@ -48,7 +48,4 @@ export class CadastrarProgramacaoComponent implements OnInit {
     this.router.navigate(["/home/listaProgramacao",this.idEvento]);
 
   }
-  voltar(){
-  this.location.back();
-}
 }
