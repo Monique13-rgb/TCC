@@ -4,64 +4,76 @@
   <form [formGroup]="formularioProg" (ngSubmit)="editar()">
 
     <!-------------------------------------------->
-    <mat-form-field style="margin: 5px;">
+    <mat-form-field style="margin: 5px;"  appearance="outline">
       <mat-label>Data Inicial: </mat-label>
       <input matInput [matDatepicker]="picker1" formControlName="dataInicio">
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="picker1"  placeholder="Data Inicial: "></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
     <!-------------------------------------------->
-    <mat-form-field style="margin: 5px;">
-      <mat-label>Data Final: </mat-label>
-      <input matInput [matDatepicker]="picker2" formControlName="dataFinal">
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-    <br><br>
-    <!-------------------------------------------->
-    <mat-form-field class="example-full-width" style="margin: 5px;">
-      <input matInput placeholder="24hr format" aria-label="24hr format" [ngxTimepicker]="fullTime" [format]="24"
+    <mat-form-field class="example-full-width" style="margin: 5px;"  appearance="outline">
+      <input matInput placeholder="Horario Inicial: " aria-label="format 24h" [ngxTimepicker]="fullTime" [format]="24"
         readonly formControlName="horaInicio">
       <ngx-material-timepicker #fullTime></ngx-material-timepicker>
     </mat-form-field>
+    <p>*Atenção! insira novamente uma data!*</p>
+    <br>
     <!-------------------------------------------->
-    <mat-form-field class="example-full-width" style="margin: 5px;">
-      <input matInput placeholder="24hr format" aria-label="24hr format" [ngxTimepicker]="fullTime2" [format]="24"
+    <mat-form-field style="margin: 5px;"  appearance="outline">
+      <mat-label>Data Final: </mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="dataFinal">
+      <mat-datepicker-toggle matSuffix [for]="picker2"  placeholder="Data Final: "></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+      <!-------------------------------------------->
+    <mat-form-field class="example-full-width" style="margin: 5px;"  appearance="outline">
+      <input matInput placeholder="Horario Final: " aria-label="format 24h" [ngxTimepicker]="fullTime2" [format]="24"
         readonly formControlName="horaFinal">
       <ngx-material-timepicker #fullTime2></ngx-material-timepicker>
     </mat-form-field>
-    <br><br>
+    <p>*Atenção! insira novamente uma data!*</p>
+    <br>
     <!-------------------------------------------->
     <mat-form-field appearance="fill" style="margin: 5px;">
       <mat-label>Nome do Palestrante: </mat-label>
       <input matInput formControlName="nomePalestrante" placeholder="Nome do Palestrante: " name="nomePalestrante" />
+      <mat-error *ngIf="formularioProg.controls['nomePalestrante'].hasError('required')">O nome do Palestrante é
+        obrigatório</mat-error>
     </mat-form-field>
     <!-------------------------------------------->
     <mat-form-field appearance="fill" style="margin: 5px;">
 
       <mat-label>Tipo: </mat-label>
       <input matInput formControlName="tipo" placeholder="Tipo: " name="tipo" />
+      <mat-error *ngIf="formularioProg.controls['tipo'].hasError('required')">O tipo é obrigatório
+      </mat-error>
     </mat-form-field>
     <!-------------------------------------------->
     <mat-form-field appearance="fill" style="margin: 5px;">
       <mat-label>Local: </mat-label>
       <input matInput formControlName="local" placeholder="Local: " name="local" />
+      <mat-error *ngIf="formularioProg.controls['local'].hasError('required')">O local é obrigatório
+      </mat-error>
     </mat-form-field>
     <!-------------------------------------------->
     <mat-form-field appearance="fill" style="margin: 5px;">
       <mat-label>Vagas: </mat-label>
-      <input matInput type="number" formControlName="vagas" placeholder="Vagas: " name="vagas" />
+      <input matInput type="number" formControlName="vagas" placeholder="Vagas: " name="vagas"/>
+      <mat-error *ngIf="formularioProg.controls['vagas'].hasError('required')">A quantidade de vagas é obrigatório
+      </mat-error>
     </mat-form-field>
     <!-------------------------------------------->
     <mat-form-field appearance="fill" style="margin: 5px;">
       <mat-label>Valor: </mat-label>
       <input matInput type="number" formControlName="valor" placeholder="Valor: " name="valor" />
+      <mat-error *ngIf="formularioProg.controls['valor'].hasError('required')">O valor é obrigatório
+      </mat-error>
     </mat-form-field>
     <br><br>
     <!-------------------------------------------->
     <mat-card-actions>
       <button mat-raised-button class="submit-button" type="submit" [disabled]="!formularioProg.valid">
-        Criar
+        Salvar
       </button>
     </mat-card-actions>
   </form>

@@ -1,11 +1,12 @@
-<mat-card-title>Cadastrar Palestrante</mat-card-title>
+<mat-card-title>Editar Palestrante</mat-card-title>
 <br>
 <mat-card class="conteiner-palestrante">
-  <form [formGroup]="formPalestrante" (ngSubmit)="cadastrar()">
+  <form [formGroup]="formPalestrante" (ngSubmit)="editar()">
     <img class="imagem-palestrante" style="max-width: 400px; overflow: hidden;" [src]="url | async" />
     <mat-list-item>
       <input accept="image/x-png,image/gif,image/jpeg" type="file" (change)="uploadFile($event)" />
       <div>{{ porcentagemEnvio | async }}</div>
+      <p>*Atenção! para editar esse palestrante você precisa adicionar obrigatoriamente uma imagem!*</p>
     </mat-list-item>
     <br><br>
     <mat-form-field>

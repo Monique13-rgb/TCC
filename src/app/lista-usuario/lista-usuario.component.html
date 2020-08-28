@@ -1,0 +1,15 @@
+<mat-card>
+<mat-card-title>Usuario</mat-card-title>
+
+
+<mat-list-item *ngFor="let usuario of usuario | async">
+
+<h4>Nome: {{ usuario.nome }} - Sobrenome: {{ usuario.sobrenome }} - email: {{ usuario.email }}</h4>
+<mat-divider></mat-divider>
+</mat-list-item>
+
+</mat-card>
+
+<button class="fixed-fab" mat-fab (click)="irParaCadastroUsuario()">
+        <mat-icon>add</mat-icon>
+</button>

@@ -20,6 +20,7 @@ export class EditEventComponent implements OnInit {
   imagem: File;
 
   formularioEvento = new FormGroup({
+    imagem: new FormControl(null,[Validators.required]),
     nomeEvento: new FormControl(null, [Validators.required]),
     descricaoEvento: new FormControl(null, [Validators.required]),
   });
@@ -38,6 +39,7 @@ public appService: AppService,
 }
  
  async editar() {
+
  const eventoeditado = this.formularioEvento.value as Evento;
 
  if (this.evento.imagem){

@@ -31,7 +31,7 @@ palestrantes: Observable<Palestrante[]>;
   }
 
   async editar(palestrante: Palestrante) {
-    this.router.navigate(["/home/editPalestrante",palestrante.id]); 
+    this.router.navigate(["/home/editPalestrantes",palestrante.id]); 
 
 }
 irParaCadastroPalestrante(){

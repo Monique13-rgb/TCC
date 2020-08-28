@@ -1,33 +1,32 @@
-
 <div class="container-eventos">
   <div *ngFor="let evento of eventos | async">
-   <mat-card class="descricao-evento">
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="splash">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item  (click)="deletar(evento)"style="margin: 5px;">
-        <mat-icon>delete</mat-icon>
-        <span>Deletar</span>
+    <mat-card class="descricao-evento">
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="splash">
+        <mat-icon>more_vert</mat-icon>
       </button>
-      <button mat-menu-item (click)="editar(evento)" style="margin: 5px;">
-        <mat-icon>assignment</mat-icon>
-       <span> Editar </span> 
-      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="deletar(evento)" style="margin: 5px;">
+          <mat-icon>delete</mat-icon>
+          <span>Deletar</span>
+        </button>
+        <button mat-menu-item (click)="editar(evento)" style="margin: 5px;">
+          <mat-icon>assignment</mat-icon>
+          <span> Editar </span>
+        </button>
       </mat-menu>
-    <img  mat-card-image src={{evento.imagem}}>
-       <mat-card-title>
+      <img mat-card-image src={{evento.imagem}}>
+      <mat-card-title>
         <h5>{{ evento.nomeEvento }}</h5>
-       </mat-card-title>
+      </mat-card-title>
       <mat-card-subtitle>
         <p>{{ evento.descricaoEvento }}</p>
       </mat-card-subtitle>
-      <div class="hype">
-      <button mat-raised-button class ="water"(click)="programacao(evento)" style="margin: 5px;" >Programação
-      </button>
-       <button mat-raised-button (click)="palestrantes(evento)" style="margin: 5px;">Palestrantes
-      </button> 
+      <div>
+        <button mat-raised-button class="water" (click)="programacao(evento)" style="margin: 5px;">Programação
+        </button>
+        <button mat-raised-button class="palestrante" (click)="palestrantes(evento)" style="margin: 5px;">Palestrantes
+        </button>
       </div>
     </mat-card>
   </div>
-  </div>
+</div>

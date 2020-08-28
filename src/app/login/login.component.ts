@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
-import { shareReplay, map } from 'rxjs/operators';
-import { BreakpointObserver,Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { UsuariosService } from '../services/usuarios.service';
 
 class Autenticacao {
     email: string;
@@ -17,12 +16,8 @@ class Autenticacao {
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
 
+    hide = true;
     erro: boolean;
 
     formulario = this.formBuilder.group({
@@ -54,17 +49,15 @@ export class LoginComponent implements OnInit {
 
         try {
 
-            const userCredential = await this.authFire.auth.signInWithEmailAndPassword(autenticacao.email, autenticacao.senha);
-
-            this.router.navigate(['home']);
+          const userCredential = await this.authFire.auth.signInWithEmailAndPassword(autenticacao.email, autenticacao.senha);
+           this.router.navigate(['home']);
 
         } catch (error) {
 
-           this.erro = true;
-          this.formulario.enable();
+            this.erro = true;
+            this.formulario.enable();
 
         }
-      
-    }
 
+}
 }

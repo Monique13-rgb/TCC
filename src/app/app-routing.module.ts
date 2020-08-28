@@ -13,12 +13,15 @@ import { CadastrarProgramacaoComponent } from './cadastrar-programacao/cadastrar
 
 import { PalestrantesComponent } from './cadastrar-palestrante/palestrantes/palestrantes.component';
 import { CadastrarPalestranteComponent } from './cadastrar-palestrante/cadastrar-palestrante.component';
-import { EditPalestranteComponent } from './edit-palestrante/edit-palestrante.component';
+import { EditPalestranteComponent } from './cadastrar-palestrante/edit-palestrante/edit-palestrante.component'
+
 
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { EditProgramacaoComponent } from './cadastrar-programacao/edit-programacao/edit-programacao.component';
+import { AuthGuard } from './guards/auth.guard';
+import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 
 
 
@@ -30,27 +33,28 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
 
   {
-    path: 'home', component: HomeComponent,
+    path: 'home', component: HomeComponent, canActivate:[AuthGuard],
 
     children: [
 
       { path: '', redirectTo: 'listaEventos', pathMatch: 'full' },
 
-      { path: 'listaEventos', component: ListaEventosComponent },
-      { path: 'cadastroNovoUsuario', component: CadastroUsuarioComponent },
-      { path: 'adicionarEventos', component: AdicionarEventosComponent },
+      { path: 'listaEventos', component: ListaEventosComponent, canActivate:[AuthGuard]  },
+      { path: 'adicionarEventos', component: AdicionarEventosComponent, canActivate:[AuthGuard] },
+      { path: 'editEvent/:id', component: EditEventComponent, canActivate:[AuthGuard] },
 
-      { path: 'editEvent/:id', component: EditEventComponent },
+      { path: 'cadastrarProgramacao/:id', component: CadastrarProgramacaoComponent,canActivate:[AuthGuard] },
+      { path: 'listaProgramacao/:id', component: ListaProgramacaoComponent, canActivate:[AuthGuard] },
+      { path: 'editProgramacao/:id', component: EditProgramacaoComponent, canActivate:[AuthGuard]},
 
-      { path: 'cadastrarProgramacao/:id', component: CadastrarProgramacaoComponent },
-      { path: 'listaProgramacao/:id', component: ListaProgramacaoComponent },
-      { path: 'editProgramacao/:id', component: EditProgramacaoComponent},
+      { path: 'cadastrarPalestrante/:id', component: CadastrarPalestranteComponent, canActivate:[AuthGuard] },
+      { path: 'palestrantes/:id', component: PalestrantesComponent, canActivate:[AuthGuard] },
+      { path: 'editPalestrantes/:id', component: EditPalestranteComponent, canActivate:[AuthGuard] },
+     
+      { path: 'cadastroNovoUsuario', component: CadastroUsuarioComponent, canActivate:[AuthGuard] },
+      { path: 'listaUsuario', component: ListaUsuarioComponent, canActivate:[AuthGuard] },
 
-      { path: 'cadastrarPalestrante/:id', component: CadastrarPalestranteComponent },
-      { path: 'palestrantes/:id', component: PalestrantesComponent },
-      { path: 'editPalestrante/:id', component: EditPalestranteComponent },
-
-      { path: '**', component: PaginaNaoEncontradaComponent }
+      { path: '**', component: PaginaNaoEncontradaComponent, canActivate:[AuthGuard] }
     ],
   }
 ]

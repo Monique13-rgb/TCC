@@ -23,8 +23,8 @@ export class CadastrarPalestranteComponent implements OnInit {
   palestrante : Palestrante;
   
   formPalestrante = new FormGroup({
-    nome: new FormControl(null),
-    sobrenome: new FormControl(null),
+    nome: new FormControl(null,[Validators.required]),
+    sobrenome: new FormControl(null,[Validators.required]),
     imagem: new FormControl(null,[Validators.required]),
    
   });
@@ -41,6 +41,7 @@ export class CadastrarPalestranteComponent implements OnInit {
     this.idEvento = this.activatedRoute.snapshot.paramMap.get('id');
   }
   async cadastrar() {
+
     const novoPalestrante = this.formPalestrante.value as Palestrante;
     novoPalestrante.idEvento = this.idEvento;
 

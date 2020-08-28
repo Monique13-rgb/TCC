@@ -8,11 +8,19 @@
     display: flex;
   flex-wrap: wrap;
 
+
+}
+mat-card{
+  margin: 4px;
 }
 
-.mat-fab {
-    background-color:#170db3;
-    left: 950px;
+.fixed-fab {
+    right: 32px;
+    bottom: 32px;
+    left: auto;
+    position: fixed;
+    background-color: #170db3;
+  color: white;
 }
 .descricao-prog {
     padding: 16px;
@@ -29,7 +37,8 @@
 }
 .splash{
     float: right;
-    background-color: white;
+    background-color:white;
+    color: #170db3;
   }
 
 .grow {

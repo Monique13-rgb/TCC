@@ -4,8 +4,9 @@ import { Observable } from 'rxjs';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
-import { Palestrante } from '../models/palestrante.model';
-import { PalestranteService } from '../services/palestrante.service';
+import { Palestrante } from 'src/app/models/palestrante.model';
+import { PalestranteService } from 'src/app/services/palestrante.service';
+
 
 @Component({
   selector: 'app-edit-palestrante',
@@ -22,8 +23,8 @@ export class EditPalestranteComponent implements OnInit {
 
 
   formPalestrante = new FormGroup({
-    nome: new FormControl(null),
-    sobrenome: new FormControl(null),
+    nome: new FormControl(null,[Validators.required]),
+    sobrenome: new FormControl(null,[Validators.required]),
 
   });
 
@@ -41,6 +42,9 @@ export class EditPalestranteComponent implements OnInit {
   }
 
   async editar() {
+
+  this.formPalestrante.disable();
+
     const palestranteeditado = this.formPalestrante.value as Palestrante;
 
     if (this.palestrante.imagem) {
@@ -55,7 +59,7 @@ export class EditPalestranteComponent implements OnInit {
     await this.palestranteService.update(palestranteeditado);
     console.log(this.idEvento);
     this.router.navigate(["/home/palestrantes", this.palestrante.idEvento]);
-    
+  
 
   }
 

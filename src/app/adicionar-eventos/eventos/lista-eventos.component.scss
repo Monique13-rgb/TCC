@@ -1,13 +1,4 @@
-.lista-eventos {
-    .evento {
-        margin: 0 32px 16px 32px;
-        height: 320px;
-        background-color: white;
-        box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
-        border-radius: 4px;
-        width: 690px;
-
-        .descricao-evento {
+.descricao-evento {
             padding: 16px;
             margin: left;
             font-style: inherit;
@@ -16,54 +7,11 @@
             font-family: 1000px;
             font-weight: 1000px;
 
-
-        }
-
-        .grow {
-            flex-grow: 3;
-            width: 300;
-            float: right;
-        }
-
-        .espaco {
-            width: 32px;
-            flex-grow: 0;
-        }
-
-        button {
-            // margin-bottom: 19px;
-            width: 96px;
-            font-weight: 500;
-            background-color: coral;
-            border-radius: 100px;
-            border-color: black;
-            position: relative;
-            float: right;
-            top: 290px;
-            right: 20px;
-        }
-        .example-container {
-            width: 400px;
-            height: 200px;
-            margin: 10px;
-            border: 1px solid red;
-          }
-    }
-    .example-card {
-        max-width: 400px;
-        float: right;
-      }
-      .more-button {
-        position: absolute;
-        top: 5px;
-        right: 10px;
-      }
-
 }
 .container-eventos{
   display: flex;
   flex-wrap: wrap;
-  
+
   h5 {
     font-weight: 400;
     font-size: 26px;
@@ -85,6 +33,18 @@ mat-card{
   max-width: 700px;
 }
 
+.splash{
+  float: right;
+  background-color:white;
+  color: #170db3;
+}
+
+.water{
+  background-color: #170db3;
+  color: white;
+  float: right;
+}
+
 img{
   object-fit: contain;
   float: left;
@@ -93,12 +53,7 @@ img{
   margin: 0px 20px 10px 0;
   max-width: 200px;
 }
-.splash{
-  float: right;
-  background-color: white;
+.palestrante{
+  background-color: #170db3;
+  color: white;
 }
-.water{
-  background-color: orange;
-  float: right;
-}
-

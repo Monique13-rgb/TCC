@@ -21,8 +21,8 @@ export class AdicionarEventosComponent implements OnInit {
   
   formularioEvento = new FormGroup({
     nomeEvento: new FormControl(null, [Validators.required]),
-    descricaoEvento: new FormControl(null, [Validators.required]),
-    imagem: new FormControl(null),
+    descricaoEvento: new FormControl(null,[Validators.required]),
+    imagem: new FormControl(null,[Validators.required]),
   });
 
   constructor(
@@ -34,6 +34,7 @@ export class AdicionarEventosComponent implements OnInit {
   async ngOnInit() {}
 
   async adicionar() {
+
    const novoEvento = this.formularioEvento.value as Evento;
 
     if (this.imagem){
@@ -64,5 +65,6 @@ export class AdicionarEventosComponent implements OnInit {
 
     });
 }
+
  
 }

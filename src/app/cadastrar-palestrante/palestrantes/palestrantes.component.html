@@ -1,31 +1,29 @@
-<button mat-fab (click)="irParaCadastroPalestrante()">
+<button class="fixed-fab" mat-fab (click)="irParaCadastroPalestrante()">
   <mat-icon>add</mat-icon>
 </button>
-<div class="container-eventos">
+<div class="container-palestrantes">
   <div *ngFor="let palestrante of palestrantes | async">
-  <mat-card>
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="splash">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item  (click)="delete(palestrante.id)"style="margin: 5px;">
-        <mat-icon>delete</mat-icon>
-        <span>Deletar</span>
+    <mat-card>
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="splash">
+        <mat-icon>more_vert</mat-icon>
       </button>
-      <button mat-menu-item (click)="editar(palestrante)" style="margin: 5px;">
-        <mat-icon>assignment</mat-icon>
-       <span> Editar </span> 
-      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="delete(palestrante.id)" style="margin: 5px;">
+          <mat-icon>delete</mat-icon>
+          <span>Deletar</span>
+        </button>
+        <button mat-menu-item (click)="editar(palestrante)" style="margin: 5px;">
+          <mat-icon>assignment</mat-icon>
+          <span> Editar </span>
+        </button>
       </mat-menu>
-      <img  mat-card-image src={{palestrante.imagem}}>
-       <mat-card-title>
+      <img mat-card-image src={{palestrante.imagem}}>
+      <mat-card-title>
         <h2>Nome: {{ palestrante.nome }}</h2>
-       </mat-card-title>
+      </mat-card-title>
       <mat-card-subtitle>
         <h2>Sobrenome: {{ palestrante.sobrenome }}</h2>
       </mat-card-subtitle>
-  </mat-card>
-
-  
-</div>
+    </mat-card>
+  </div>
 </div>

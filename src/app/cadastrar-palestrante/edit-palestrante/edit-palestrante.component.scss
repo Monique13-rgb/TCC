@@ -1,44 +1,33 @@
+mat-form-field{
+    width: 700px;
+}
+.submit-button{
+    left: 635px;
+    background-color: #170db3;
+}
+.uppercase {
+    background-color: #170db3;
+    color: white;
+}
 .input-style{
   font-style: inherit;
   font-weight: inherit;
   font-family: 10px;
   background-position: 900px;
 }
-mat-card{
-  margin: 20px;
-}
 p{
   background-color: white;
   color: red;
 }
-mat-form-field{
-  width: 600px;
-}
-mat-card-title{
-  text-align: left;
-}
-mat-card-subtitle{
-  text-align: center;
-}
-.banana-evento {
+.conteiner-palestrante{
   display: flex;
   flex-wrap: wrap;
 }
-.imagem-evento {
+.imagem-palestrante {
   object-fit: contain;
   float: left;
   border: transparent thin solid;
   padding: 9px;
   margin: 0px 20px 10px 0;
   max-width: 200px;
-}
-.msg{
-  height: 300px;
-}
-mat-form-field{
-  width: 700px;
-}
-.submit-button{
-  left: 10px;
-  background-color: #170db3;
 }

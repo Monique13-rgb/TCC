@@ -5,32 +5,26 @@
     background-color: white;
     
   }
-  
   .sidenav {
-    background-color:#ffba00;
-    width: 230px;
-    display: grid;
-  
-  
-  img{
-    width: 200px;
-  }  
+    background-color:#ed9121;
+    width: 240px;
+    display: grid; 
   }
   .sidenav .mat-toolbar {
-    background: center;
-    background-color:#ffba00;
-     width: 230px;
-     height: 230px;
+    text-align: center;
+    height: 200px;
+    background-color:#ed9121;
+     width: 240px;
   }
-  
-  .mat-toolbar.mat-primary {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color:#ffba00;
+  .mat-toolbar{
+    background-color:#ed9121;
   }
-  .sair{
-    left: 900px;
+  .span{
+    left: 700px;
+  }
+  .user{
+    left: 830px;
+    background-color: yellow;
   }
   .navigation-item{
     color: white;

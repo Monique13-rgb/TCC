@@ -1,48 +1,38 @@
 <mat-card-title>Editar Evento</mat-card-title>
-  <br>
-  <mat-card class="banana-evento">
-    <form [formGroup]="formularioEvento" (ngSubmit)="editar()">
-<img class ="imagem-evento"
-        style="max-width: 400px; overflow: hidden;"
-        [src]="url | async"
-      />
-        <mat-list-item>
-          <input
-            accept="image/x-png,image/gif,image/jpeg"
-            type="file"
-            (change)="uploadFile($event)"
-          />
-          <div>{{ porcentagemEnvio | async }}</div>
-        </mat-list-item>
-<br><br>
-        <mat-form-field appearance="fill" class="orange">
+<br>
+<mat-card class="banana-evento">
+  <form [formGroup]="formularioEvento" (ngSubmit)="editar()">
+    <img class="imagem-evento" style="max-width: 400px; overflow: hidden;" [src]="url | async" />
+    <mat-list-item>
+      <input accept="image/x-png,image/gif,image/jpeg" type="file" (change)="uploadFile($event)" />
+      <div>{{ porcentagemEnvio | async }}</div>
+      <p>*Atenção! para editar esse evento você precisa adicionar obrigatoriamente uma imagem!*</p>
+    </mat-list-item>
+    <br><br>
+    <div class="ms">
+      <mat-form-field>
 
-          <mat-label>Nome do Evento:</mat-label>
-          <input matInput
-            formControlName="nomeEvento"
-            placeholder="Nome do Evento: "
-            name="nomeEvento"
-          />
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill" class="laranja">
-          <mat-label>Descrição do Evento: </mat-label>
-          <textarea rows="8"
-            matInput
-            formControlName="descricaoEvento"
-            placeholder="Descrição do Evento: "
-            name="descricaoEvento"></textarea>
+        <mat-label>Nome do Evento: </mat-label>
+        <input matInput formControlName="nomeEvento" placeholder="Nome do Evento: " name="nomeEvento"/>
+        <mat-error *ngIf="formularioEvento.controls['nomeEvento'].hasError('required')">O nome do Evento é obrigatório
+        </mat-error>
 
-          </mat-form-field>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Descrição do Evento: </mat-label>
+        <textarea rows="8" matInput formControlName="descricaoEvento" placeholder="Descrição do Evento: "
+          name="descricaoEvento"></textarea>
+          <mat-error *ngIf="formularioEvento.controls['descricaoEvento'].hasError('required')">A descrição do Evento é obrigatório
+          </mat-error>
 
-        <mat-card-actions>
-            <button
-              mat-raised-button
-              class="submit-button"
-              type="submit"
-              [disabled]="!formularioEvento.valid">
-              salvar
-            </button>
-          </mat-card-actions>
-     </form>
-  </mat-card>
+      </mat-form-field>
+    </div>
+    <mat-card-actions>
+      <button mat-raised-button class="submit-button" color="primary" type="submit">
+        Salvar
+      </button>
+
+    </mat-card-actions>
+  </form>
+</mat-card>

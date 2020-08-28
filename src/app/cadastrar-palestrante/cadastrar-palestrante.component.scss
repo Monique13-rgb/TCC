@@ -1,7 +1,3 @@
-.milho{
-    background-color:#170db3;
-    left: 560px;
-}
 .input-style{
     font-style: inherit;
     font-weight: inherit;
@@ -9,15 +5,13 @@
     background-position: 900px;
 }
 mat-card{
-    margin: 20px;
-    width: 700px;
     left: 150px;
 }
-.banana-evento {
+.conteiner-palestrante{
     display: flex;
     flex-wrap: wrap;
 }
-.imagem-evento {
+.imagem-palestrante {
     object-fit: contain;
     float: left;
     border: transparent thin solid;
@@ -25,13 +19,15 @@ mat-card{
     margin: 0px 20px 10px 0;
     max-width: 200px;
 }
-.msg{
-    height: 300px;
-}
+
 mat-form-field{
     width: 700px;
 }
 .submit-button{
     left: 635px;
     background-color: #170db3;
+}
+.uppercase {
+    background-color: #170db3;
+    color: white;
 }

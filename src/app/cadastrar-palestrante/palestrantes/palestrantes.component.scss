@@ -1,7 +1,10 @@
-.container-eventos{
+.container-palestrantes{
   display: flex;
   flex-wrap: wrap;
 
+}
+mat-card{
+  margin: 20px;
 }
   mat-card-title{
     line-height: 20px;
@@ -18,13 +21,6 @@ mat-card-subtitle{
     margin: 0 32px 16px 32px;
     text-align: center;
 }
-
-mat-card{
-  margin: 20px;
-  width: 500px;
-  height: 350px;
-
-}
 img{
   object-fit: contain;
   float: left;
@@ -37,18 +33,13 @@ img{
 .splash{
   float: right;
   background-color: white;
+  color: #170db3;
 }
-
-.water{
-  background-color: orange;
-  float: right;
-}
-
-.mat-fab {
-  background-color:#170db3;
-  left: 950px;
-}
-.glass{
-  left: 200px;
+.fixed-fab {
+  right: 32px;
+  bottom: 32px;
+  left: auto;
+  position: fixed;
   background-color: #170db3;
+color: white;
 }

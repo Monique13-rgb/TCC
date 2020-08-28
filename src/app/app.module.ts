@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatStepperModule} from '@angular/material/stepper';
 
 import localept from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
@@ -34,8 +35,8 @@ import { CadastrarProgramacaoComponent } from './cadastrar-programacao/cadastrar
 import { ListaProgramacaoComponent } from './cadastrar-programacao/programacao/lista-programacao.component';
 import { CadastrarPalestranteComponent } from './cadastrar-palestrante/cadastrar-palestrante.component';
 import { EditEventComponent } from './adicionar-eventos/edit-event/edit-event.component';
-import { EditPalestranteComponent } from './edit-palestrante/edit-palestrante.component';
 import { EditProgramacaoComponent } from './cadastrar-programacao/edit-programacao/edit-programacao.component';
+import { EditPalestranteComponent } from './cadastrar-palestrante/edit-palestrante/edit-palestrante.component'
 
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
@@ -46,6 +47,9 @@ import { environment } from 'src/environments/environment';
 import { LoginComponent } from './login/login.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { HomeComponent } from './home/home.component';
+import { UsuariosService } from './services/usuarios.service';
+import { AuthGuard } from './guards/auth.guard';
+import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 
 
 @NgModule({
@@ -61,8 +65,9 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     CadastroUsuarioComponent,
     HomeComponent,
-    EditPalestranteComponent,
     EditProgramacaoComponent,
+    EditPalestranteComponent,
+    ListaUsuarioComponent
 
 
 
@@ -92,7 +97,8 @@ import { HomeComponent } from './home/home.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule.enablePersistence(),
     AngularFireStorageModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatStepperModule
 
 
 
@@ -100,6 +106,8 @@ import { HomeComponent } from './home/home.component';
 
   ],
   providers: [
+    UsuariosService,
+    AuthGuard,
     { provide: LOCALE_ID, useValue: 'pt' }
   ],
 
